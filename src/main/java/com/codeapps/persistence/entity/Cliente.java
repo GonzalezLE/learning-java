@@ -1,24 +1,29 @@
 package com.codeapps.persistence.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "clientes")
+@Table(name="clientes")
 public class Cliente {
-    
+
     @Id
     private String id;
-
     private String nombre;
     private String apellidos;
-    private String celular;
+    private Long celular;
     private String direccion;
 
-    @Column(name = "correo_electronico")
+    @Column(name="correo_electronico")
     private String correoElectronico;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras;
 
     public String getId() {
         return id;
@@ -44,11 +49,11 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    public String getCelular() {
+    public Long getCelular() {
         return celular;
     }
 
-    public void setCelular(String celular) {
+    public void setCelular(Long celular) {
         this.celular = celular;
     }
 
@@ -68,6 +73,11 @@ public class Cliente {
         this.correoElectronico = correoElectronico;
     }
 
+    public List<Compra> getCompras() {
+        return compras;
+    }
 
-
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
+    }
 }

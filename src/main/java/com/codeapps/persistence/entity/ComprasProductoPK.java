@@ -4,7 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class ComprasProductosPK implements Serializable{
+public class ComprasProductoPK  implements Serializable{
     
     @Column(name ="id_compra")
     private Integer idCompra;
